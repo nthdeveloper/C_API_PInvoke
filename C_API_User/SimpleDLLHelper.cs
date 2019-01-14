@@ -28,5 +28,25 @@ namespace C_API_User
         [DllImport("SimpleDLL.dll", CallingConvention = CallingConvention.Cdecl), System.Security.SuppressUnmanagedCodeSecurity]
         [return: MarshalAs(UnmanagedType.LPWStr)]
         public static extern string GetFullName([MarshalAs(UnmanagedType.LPWStr)]string firstName, [MarshalAs(UnmanagedType.LPWStr)]string lastName);
+
+        //Get a struct by reference
+        [DllImport("SimpleDLL.dll", CallingConvention = CallingConvention.Cdecl), System.Security.SuppressUnmanagedCodeSecurity]
+        public static extern void ModifyStruct(ref SampleStruct pStruct);
+    }
+
+    public enum SampleEnum
+    {
+        SampleOption1,
+        SampleOption2
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SampleStruct
+    {
+        public int ANumber;
+        public SampleEnum AnEnum;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public int[] AnArray;
     }
 }

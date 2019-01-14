@@ -39,4 +39,11 @@ SIMPLEDLL_API wchar_t* GetFullName(const wchar_t* firstName, const wchar_t* last
 	return fullName;
 }
 
+SIMPLEDLL_API void ModifyStruct(SampleStruct* pStruct)
+{
+	pStruct->ANumber = 5;
+	pStruct->AnEnum = SampleEnum::SampleOption2;
+	pStruct->AnArray[0] = 15;
+}
+
 

@@ -9,15 +9,31 @@
 
 extern "C"
 {
-	//Pass two integer values and get integer
+	enum SampleEnum
+	{
+		SampleOption1,
+		SampleOption2
+	};
+
+	struct SampleStruct
+	{
+		int32_t ANumber;
+		SampleEnum AnEnum;
+		int AnArray[2];
+	};
+
+	//Get two integer values and return integer
 	SIMPLEDLL_API int32_t SumTwoIntegers(int32_t number1, int32_t number2);
 
-	//Pass a number by reference (pointer)
+	//Get a number by reference (pointer)
 	SIMPLEDLL_API void MultiplyByTwo(int32_t* originalNumber);
 
-	//Pass a unicode strings, return its length
+	//Get a unicode string, return its length
 	SIMPLEDLL_API int32_t GetNameLength(const wchar_t* name);
 
-	//Pass two unicode strings, return string
+	//Get two unicode strings, return string
 	SIMPLEDLL_API wchar_t* GetFullName(const wchar_t* firstName, const wchar_t* lastName);
+
+	//Get a struct and modify it
+	SIMPLEDLL_API void ModifyStruct(SampleStruct* pStruct);
 };
