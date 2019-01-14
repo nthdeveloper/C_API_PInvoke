@@ -53,6 +53,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)
-copy /y ..\Debug\SimpleDLL.dll bin\Debug</PostBuildEvent>
+copy /y ..\Debug\SimpleDLL.dll bin\Debug
+copy /y ..\Debug\SimpleDLL.pdb bin\Debug</PostBuildEvent>
   </PropertyGroup>
 </Project>
