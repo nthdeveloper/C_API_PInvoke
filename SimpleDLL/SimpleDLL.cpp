@@ -28,10 +28,6 @@ SIMPLEDLL_API wchar_t* GetFullName(const wchar_t* firstName, const wchar_t* last
 
 	wchar_t* fullName = (wchar_t*)GlobalAlloc(GPTR, sizeof(wchar_t) * fullNameSize);
 
-	//wchar_t* fullName = new wchar_t[fullNameSize];
-
-	ZeroMemory(fullName, sizeof(wchar_t) * fullNameSize);
-
 	wcsncat(fullName, firstName, firstNameLength);
 	wcsncat(fullName, L" ", 1);
 	wcsncat(fullName, lastName, lastNameLength);
