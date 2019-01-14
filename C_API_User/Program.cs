@@ -32,6 +32,14 @@ namespace C_API_User
             SimpleDLLHelper.ModifyStruct(ref myStruct);
             Console.WriteLine($"New number is {myStruct.ANumber}, option is {myStruct.AnEnum}, first array item is {myStruct.AnArray[0]}");
 
+            //Test callback function
+            ProgressCallback progCallback = (val)=>
+            {
+                Console.WriteLine($"Progress is {val}");
+            };
+
+            SimpleDLLHelper.CallPassedFunction(progCallback);
+
             Console.ReadLine();
         }
     }

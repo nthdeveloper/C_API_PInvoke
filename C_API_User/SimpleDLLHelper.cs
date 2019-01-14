@@ -1,4 +1,7 @@
-﻿using System;
+﻿//For more info about PInvoke
+//https://docs.microsoft.com/en-us/cpp/dotnet/calling-native-functions-from-managed-code?view=vs-2017
+
+using System;
 using System.Runtime.InteropServices;
 
 namespace C_API_User
@@ -28,7 +31,14 @@ namespace C_API_User
         //Get a struct by reference
         [DllImport("SimpleDLL.dll", CallingConvention = CallingConvention.Cdecl), System.Security.SuppressUnmanagedCodeSecurity]
         public static extern void ModifyStruct(ref SampleStruct pStruct);
+
+        //Pass callback function
+        [DllImport("SimpleDLL.dll", CallingConvention = CallingConvention.Cdecl), System.Security.SuppressUnmanagedCodeSecurity]
+        public static extern void CallPassedFunction(ProgressCallback func);
     }
+
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate void ProgressCallback(int value);
 
     public enum SampleEnum
     {

@@ -42,4 +42,12 @@ SIMPLEDLL_API void ModifyStruct(SampleStruct* pStruct)
 	pStruct->AnArray[0] = 15;
 }
 
+SIMPLEDLL_API void CallPassedFunction(ProgressCallback func)
+{
+	func(1);
+	func(5);
+	//...
+	func(100);
+}
+
 

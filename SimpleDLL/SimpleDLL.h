@@ -22,6 +22,8 @@ extern "C"
 		int AnArray[2];
 	};
 
+	typedef void(__stdcall * ProgressCallback)(int);
+
 	//Get two integer values and return integer
 	SIMPLEDLL_API int32_t SumTwoIntegers(int32_t number1, int32_t number2);
 
@@ -36,4 +38,7 @@ extern "C"
 
 	//Get a struct and modify it
 	SIMPLEDLL_API void ModifyStruct(SampleStruct* pStruct);
+
+	//Call passed function
+	SIMPLEDLL_API void CallPassedFunction(ProgressCallback func);
 };
