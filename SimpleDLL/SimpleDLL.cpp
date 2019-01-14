@@ -4,22 +4,22 @@
 #include "stdafx.h"
 #include "SimpleDLL.h"
 
-J2KNATIVESOURCE_API int32_t SumTwoIntegers(int32_t number1, int32_t number2)
+SIMPLEDLL_API int32_t SumTwoIntegers(int32_t number1, int32_t number2)
 {
 	return number1 + number2;
 }
 
-J2KNATIVESOURCE_API void MultiplyByTwo(int32_t* originalNumber)
+SIMPLEDLL_API void MultiplyByTwo(int32_t* originalNumber)
 {
 	(*originalNumber) = (*originalNumber) * 2;
 }
 
-J2KNATIVESOURCE_API int32_t GetNameLength(const wchar_t* name)
+SIMPLEDLL_API int32_t GetNameLength(const wchar_t* name)
 {
 	return (int32_t)wcslen(name);
 }
 
-J2KNATIVESOURCE_API wchar_t* GetFullName(const wchar_t* firstName, const wchar_t* lastName)
+SIMPLEDLL_API wchar_t* GetFullName(const wchar_t* firstName, const wchar_t* lastName)
 {
 	size_t firstNameLength = wcslen(firstName);
 	size_t lastNameLength = wcslen(lastName);
